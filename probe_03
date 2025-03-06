@@ -1,0 +1,68 @@
+dict_field = {
+    11:1, 12:0, 13:0, 14:0, 15:0, 16:0, 17:0, 18:0,
+    21:0, 22:0, 23:0, 24:0, 25:0, 26:0, 27:0, 28:0,
+    31:0, 32:0, 33:0, 34:0, 35:0, 36:0, 37:0, 38:0,
+    41:0, 42:0, 43:0, 44:0, 45:0, 46:0, 47:0, 48:0,
+    51:0, 52:0, 53:0, 54:0, 55:0, 56:0, 57:0, 58:0,
+    61:0, 62:0, 63:0, 64:0, 65:0, 66:0, 67:0, 68:0,
+    71:0, 72:0, 73:0, 74:0, 75:0, 76:0, 77:0, 78:0,
+    81:0, 82:0, 83:0, 84:0, 85:0, 86:0, 87:0, 88:0,
+            }
+
+
+figure_01 = [11]                            #   один квадратик
+figure_02 = 11, 12                        #   полоска из 2-х квадратиков горизонтальная
+figure_03 = 11, 12, 13                    #   полоска из 3-х квадратиков горизонтальная
+figure_04 = 11, 12, 13, 14                #   полоска из 4-х квадратиков горизонтальная
+figure_05 = 11, 12, 13, 14, 15                   #   полоска из 5-х квадратиков
+figure_06 = 11, 12, 21, 22                # квадрат  2х2
+figure_07 = 11, 12, 13, 21, 22, 23        # прямоугольник 2х3 горизонтальный
+figure_08 = 11, 12, 21, 22, 31, 32        # прямоугольник 3х2 вертикальный
+figure_09 = 11, 12, 13, 21, 22, 23, 31, 32, 33   # квадрат 3х3
+figure_10 = 11, 12, 13, 21                      # угол 11, 12, 13 и вниз 21
+figure_11 = 11, 21, 22, 23                      # угол 11 вверху и 21, 22, 23
+figure_12 = 11, 12, 21, 31                      # угол 11, 21, 31 и вправо 12
+figure_13 = 11, 12, 22, 23
+figure_14 = 11, 21, 31, 32
+figure_15 = 12, 22, 31, 32
+figure_16 = 11, 12, 13, 23
+figure_17 = 21, 22, 23, 13
+figure_18 = 11, 21                        #   полоска из 2-х квадратиков вертикальная
+figure_19 = 11, 21, 31                    #   полоска из 3-х квадратиков вертикальная
+figure_20 = 11, 21, 31, 41                #   полоска из 4-х квадратиков вертикальная
+figure_21 = 11, 21, 31, 41, 51                #   полоска из 5-х квадратиков вертикальная
+
+
+def func_write_figures(figure_1):
+    flag_1 = True
+    print(flag_1, 'first flag')
+    for element in range(len(figure_1)):
+        print(element)
+        if dict_field[figure_1[element]] == 1:
+            flag_1 = False
+            print(dict_field[figure_1[element]])
+            print(flag_1)
+
+    if flag_1 == True:
+        for element in range(len(figure_1)):
+            dict_field[figure_1[element]] = 1
+    else:
+        flag_1 = True
+        for element in range(len(figure_1)):
+            if dict_field[figure_1[element] + 1] == 1:
+                flag_1 = False
+        if flag_1 == True:
+            for element in range(len(figure_1)):
+                dict_field[figure_1[element] + 1] = 1
+
+
+
+
+def func_clearing_full_strings_and_columns(dict_field):
+    pass
+
+    return dict_field
+
+
+func_write_figures(figure_05)
+print(dict_field)
